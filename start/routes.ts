@@ -29,10 +29,11 @@ Route.get('/', async ({ view }) => {
  */
 Route.group(() => {
   Route.get('register', 'RegisterController.index').as('register.index')
-  Route.post('register', 'RegisterController.store').as('register.store')
+  Route.post('register', 'RegisterController.register').as('register.register')
 
-  Route.get('login', 'Auth/LoginController.index').as('login.index')
-  Route.post('login', 'Auth/LoginController.store').as('login.store')
+  Route.get('login', 'LoginController.index').as('login.index')
+  Route.post('login', 'LoginController.login').as('login.login')
+  Route.get('logout', 'LoginController.logout').as('login.logout')
 }).namespace('App/Controllers/Http/Auth')
 
 /**
@@ -42,12 +43,12 @@ Route.group(() => {
   /**
    * Todos
    */
-  Route.resource('todos', 'TodosController')
+  Route.resource('/todos', 'TodosController').as('todos')
 
   /**
    * Profile
    */
-  Route.get('profile', ({ view }) => {
+  Route.get('/profile', ({ view }) => {
     return view.render('profile')
-  })
+  }).as('profile.index')
 }).middleware('auth')

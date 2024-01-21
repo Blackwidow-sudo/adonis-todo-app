@@ -2,17 +2,15 @@
 @set('title', 'Login')
 
 @section('body')
-    <div class="">
-        <form class="space-y-2">
-            <div>
-                <label for="email">Email</label>
-                <input type="text" name="email" id="email" placeholder="Enter email..." />
-            </div>
-            <div>
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" placeholder="Enter password..." />
-            </div>
-            <input type="submit" value="Login" />
-        </form>
-    </div>
+    <form class="max-w-md p-4 mx-auto space-y-2" action="{{ route('login.login') }}" method="post">
+        <div class="space-y-1">
+            <label class="block" for="email">Email</label>
+            <input class="block px-2 py-1 border" type="text" name="email" id="email" placeholder="Enter email..." />
+        </div>
+        <div class="space-y-1">
+            <label class="block" for="password">Password</label>
+            <input class="block px-2 py-1 border" type="password" name="password" id="password" placeholder="Enter password..." />
+        </div>
+        <button class="px-4 py-2 mx-auto text-white cursor-pointer bg-cyan-600 hover:bg-cyan-700">Register</button>
+    </form>
 @end

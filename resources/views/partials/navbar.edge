@@ -14,17 +14,17 @@
     <ul class="flex items-center justify-center gap-2">
         @if(auth.isLoggedIn)
             <li>
-                <a class="inline-block px-4 py-2 hover:bg-black/10" href="{{ route('profile') }}">Profile</a>
+                <a class="inline-block px-4 py-2 hover:bg-black/10" href="{{ route('profile.index') }}">Profile</a>
             </li>
             <li>
-                <a class="inline-block px-4 py-2 hover:bg-black/10" href="{{ route('logout') }}">Logout</a>
+                <a class="inline-block px-4 py-2 hover:bg-black/10" href="{{ route('login.logout') }}">Logout</a>
             </li>
         @else
             <li>
                 <a class="inline-block px-4 py-2 hover:bg-black/10" href="{{ route('register.index') }}">Register</a>
             </li>
             <li>
-                <a class="inline-block px-4 py-2 hover:bg-black/10" href="{{ route('login') }}">Login</a>
+                <a class="inline-block px-4 py-2 hover:bg-black/10" href="{{ route('login.index') }}">Login</a>
             </li>
         @end
     </ul>

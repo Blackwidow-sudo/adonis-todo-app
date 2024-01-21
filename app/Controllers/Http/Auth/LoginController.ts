@@ -1,19 +1,26 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import LoginValidator from 'App/Validators/LoginValidator'
 
 export default class LoginController {
   public async index({ view }: HttpContextContract) {
     return view.render('login')
   }
 
-  public async create({}: HttpContextContract) {}
+  public async login({ auth, request, response }: HttpContextContract) {
+    const payload = await request.validate(LoginValidator)
 
-  public async store({}: HttpContextContract) {}
+    try {
+      await auth.use('web').attempt(payload.email, payload.password)
 
-  public async show({}: HttpContextContract) {}
+      return response.redirect().toRoute('todos.index')
+    } catch {
+      return response.badRequest('Invalid credentials')
+    }
+  }
 
-  public async edit({}: HttpContextContract) {}
+  public async logout({ auth, response }: HttpContextContract) {
+    await auth.use('web').logout()
 
-  public async update({}: HttpContextContract) {}
-
-  public async destroy({}: HttpContextContract) {}
+    return response.redirect().toRoute('login.index')
+  }
 }
