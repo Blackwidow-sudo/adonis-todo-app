@@ -1,0 +1,18 @@
+@layout('layouts/main')
+@set('title', 'Login')
+
+@section('body')
+    <div class="">
+        <form class="space-y-2">
+            <div>
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" placeholder="Enter email..." />
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Enter password..." />
+            </div>
+            <input type="submit" value="Login" />
+        </form>
+    </div>
+@end

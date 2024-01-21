@@ -1,0 +1,31 @@
+@set('routes', [
+        { name: 'Home', path: route('/') },
+        { name: 'Todos', path: route('TodosController.index') },
+    ])
+
+<nav class="flex flex-row justify-between px-10 mb-2 bg-cyan-300">
+    <ul class="flex items-center justify-center gap-2">
+        @each(route in routes)
+            <li>
+                <a class="inline-block px-4 py-2 hover:bg-black/10" href="{{ route.path }}">{{ route.name }}</a>
+            </li>
+        @end
+    </ul>
+    <ul class="flex items-center justify-center gap-2">
+        @if(auth.isLoggedIn)
+            <li>
+                <a class="inline-block px-4 py-2 hover:bg-black/10" href="{{ route('profile') }}">Profile</a>
+            </li>
+            <li>
+                <a class="inline-block px-4 py-2 hover:bg-black/10" href="{{ route('logout') }}">Logout</a>
+            </li>
+        @else
+            <li>
+                <a class="inline-block px-4 py-2 hover:bg-black/10" href="{{ route('register.index') }}">Register</a>
+            </li>
+            <li>
+                <a class="inline-block px-4 py-2 hover:bg-black/10" href="{{ route('login') }}">Login</a>
+            </li>
+        @end
+    </ul>
+</nav>
