@@ -17,6 +17,9 @@ dependencies:
   '@adonisjs/repl':
     specifier: ^3.1.0
     version: 3.1.11(@adonisjs/core@5.9.0)
+  '@adonisjs/route-model-binding':
+    specifier: 1.0.1
+    version: 1.0.1(@adonisjs/core@5.9.0)(@adonisjs/lucid@18.4.0)
   '@adonisjs/session':
     specifier: ^6.2.0
     version: 6.4.0(@adonisjs/core@5.9.0)
@@ -63,7 +66,7 @@ devDependencies:
     version: 2.5.1
   '@symfony/webpack-encore':
     specifier: 4.1.1
-    version: 4.1.1(@babel/core@7.23.7)(@babel/preset-env@7.23.8)(eslint@8.56.0)(postcss-loader@8.0.0)(postcss@8.4.33)(typescript@4.6.4)(webpack-cli@4.10.0)(webpack@5.89.0)
+    version: 4.1.1(@babel/core@7.23.7)(@babel/preset-env@7.23.8)(eslint@8.56.0)(postcss-loader@7.3.4)(postcss@8.4.33)(typescript@4.6.4)(webpack-cli@4.10.0)(webpack@5.89.0)
   '@types/proxy-addr':
     specifier: ^2.0.3
     version: 2.0.3
@@ -95,8 +98,8 @@ devDependencies:
     specifier: ^8.4.33
     version: 8.4.33
   postcss-loader:
-    specifier: ^8.0.0
-    version: 8.0.0(postcss@8.4.33)(typescript@4.6.4)(webpack@5.89.0)
+    specifier: ^7.3.4
+    version: 7.3.4(postcss@8.4.33)(typescript@4.6.4)(webpack@5.89.0)
   prettier:
     specifier: ^3.2.4
     version: 3.2.4
@@ -417,6 +420,17 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@adonisjs/route-model-binding@1.0.1(@adonisjs/core@5.9.0)(@adonisjs/lucid@18.4.0):
+    resolution: {integrity: sha512-EmUFMaD7ILHempGGNKT0Z7zKts5ykCFfo1dHWAEJza6LIUswkp/NyLy+8YOjQHSdZU5/nAp1vwWrXFA9OefQ0Q==}
+    peerDependencies:
+      '@adonisjs/core': ^5.8.3
+      '@adonisjs/lucid': ^18.0.0
+    dependencies:
+      '@adonisjs/core': 5.9.0
+      '@adonisjs/lucid': 18.4.0(@adonisjs/application@5.3.0)(@adonisjs/core@5.9.0)(sqlite3@5.1.7)
+      '@poppinss/utils': 4.0.4
+    dev: false
 
   /@adonisjs/session@6.4.0(@adonisjs/core@5.9.0):
     resolution: {integrity: sha512-9yHS60lFpNBUX5/yB+0j+bXQDWqbaYJ1JelLCYtaKRa7B0NewvmPAmsNpHH8SrXE3XGaRyKOxrUGRcmSGg5mRA==}
@@ -2229,7 +2243,7 @@ packages:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
     dev: true
 
-  /@symfony/webpack-encore@4.1.1(@babel/core@7.23.7)(@babel/preset-env@7.23.8)(eslint@8.56.0)(postcss-loader@8.0.0)(postcss@8.4.33)(typescript@4.6.4)(webpack-cli@4.10.0)(webpack@5.89.0):
+  /@symfony/webpack-encore@4.1.1(@babel/core@7.23.7)(@babel/preset-env@7.23.8)(eslint@8.56.0)(postcss-loader@7.3.4)(postcss@8.4.33)(typescript@4.6.4)(webpack-cli@4.10.0)(webpack@5.89.0):
     resolution: {integrity: sha512-uZRXej1prTvYG/QJWR/DzKcZtBKEXDkGtK9qlQtO43ip8t8NIZmM+w8qeb4eiS7aoULWmpG7GpQOLWPhsccUDA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
@@ -2335,7 +2349,7 @@ packages:
       mini-css-extract-plugin: 2.7.7(webpack@5.89.0)
       pkg-up: 3.1.0
       postcss: 8.4.33
-      postcss-loader: 8.0.0(postcss@8.4.33)(typescript@4.6.4)(webpack@5.89.0)
+      postcss-loader: 7.3.4(postcss@8.4.33)(typescript@4.6.4)(webpack@5.89.0)
       pretty-error: 4.0.0
       resolve-url-loader: 5.0.0
       semver: 7.5.4
@@ -4068,8 +4082,8 @@ packages:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
     dev: true
 
-  /cosmiconfig@9.0.0(typescript@4.6.4):
-    resolution: {integrity: sha512-itvL5h8RETACmOTFc4UfIyB2RfEHi71Ax6E/PivVxq9NseKbOWpeyHEOIbmAw1rs8Ak0VursQNww7lf7YtUwzg==}
+  /cosmiconfig@8.3.6(typescript@4.6.4):
+    resolution: {integrity: sha512-kcZ6+W5QzcJ3P1Mt+83OUv/oHFqZHIx8DuxG6eZ5RGMERoLqp4BuGjhHLYGK+Kf5XVkQvqBSmAy/nGWN3qDgEA==}
     engines: {node: '>=14'}
     peerDependencies:
       typescript: '>=4.9.5'
@@ -4077,10 +4091,10 @@ packages:
       typescript:
         optional: true
     dependencies:
-      env-paths: 2.2.1
       import-fresh: 3.3.0
       js-yaml: 4.1.0
       parse-json: 5.2.0
+      path-type: 4.0.0
       typescript: 4.6.4
     dev: true
 
@@ -4685,6 +4699,9 @@ packages:
   /env-paths@2.2.1:
     resolution: {integrity: sha512-+h1lkLKhZMTYjog1VEpJNG7NZJWcuc2DDk/qsqSTRRCOXiLjeQ1d1/udrUGhqMxUgAlwKNZ0cf2uqan5GLuS2A==}
     engines: {node: '>=6'}
+    requiresBuild: true
+    dev: false
+    optional: true
 
   /envinfo@7.11.0:
     resolution: {integrity: sha512-G9/6xF1FPbIw0TtalAMaVPpiq2aDEuKLXM314jPVAO9r2fo2a4BLqMNkmRS7O/xPPZ+COAhGIz3ETvHEV3eUcg==}
@@ -7658,14 +7675,14 @@ packages:
       yaml: 2.3.4
     dev: true
 
-  /postcss-loader@8.0.0(postcss@8.4.33)(typescript@4.6.4)(webpack@5.89.0):
-    resolution: {integrity: sha512-+RiNlmYd1aXYv6QSBOAu6n9eJYy0ydyXTfjljAJ3vFU6MMo2M552zTVcBpBH+R5aAeKaYVG1K9UEyAVsLL1Qjg==}
-    engines: {node: '>= 18.12.0'}
+  /postcss-loader@7.3.4(postcss@8.4.33)(typescript@4.6.4)(webpack@5.89.0):
+    resolution: {integrity: sha512-iW5WTTBSC5BfsBJ9daFMPVrLT36MrNiC6fqOZTTaHjBNX6Pfd5p+hSBqe/fEeNd7pc13QiAyGt7VdGMw4eRC4A==}
+    engines: {node: '>= 14.15.0'}
     peerDependencies:
       postcss: ^7.0.0 || ^8.0.1
       webpack: ^5.0.0
     dependencies:
-      cosmiconfig: 9.0.0(typescript@4.6.4)
+      cosmiconfig: 8.3.6(typescript@4.6.4)
       jiti: 1.21.0
       postcss: 8.4.33
       semver: 7.5.4
