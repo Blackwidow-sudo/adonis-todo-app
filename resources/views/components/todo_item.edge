@@ -1,6 +1,16 @@
-<li class="flex border rounded border-slate-400" data-id="{{ id }}">
-    <span class="w-full p-2">{{ task }}</span>
-    <div>
-        <button class="p-2 border hover:bg-black/10">🗑</button>
-    </div>
+<li
+  class="flex border rounded border-slate-400"
+  id="todo-{{ id }}">
+  <span class="w-full px-4 py-2">
+    {{ task }}
+  </span>
+  <div>
+    <button
+      class="p-2 border rounded-r hover:bg-black/10"
+      hx-delete="{{ route('TodosController.destroy', [ id ]) }}"
+      hx-swap="delete"
+      hx-target="#todo-{{ id }}">
+      🗑
+    </button>
+  </div>
 </li>

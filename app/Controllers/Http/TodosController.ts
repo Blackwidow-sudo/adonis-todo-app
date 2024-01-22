@@ -1,22 +1,24 @@
-import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import { bind } from '@adonisjs/route-model-binding'
 import Todo from 'App/Models/Todo'
 import TodoValidator from 'App/Validators/TodoValidator'
 
-export default class TodosController {
-  public async index({ view }: HttpContextContract) {
-    const todos = await Todo.all()
+import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-    return view.render('todos', {
-      todos,
-    })
+export default class TodosController {
+  public async index({ view, auth }: HttpContextContract) {
+    const user = await auth.user
+    const todos = await user?.related('todos').query()
+
+    return view.render('todos', { todos })
   }
 
   public async create({}: HttpContextContract) {}
 
-  public async store({ request, response }: HttpContextContract) {
+  public async store({ auth, request, response }: HttpContextContract) {
+    const userId = await auth.user?.id
     const payload = await request.validate(TodoValidator)
 
-    await Todo.create(payload)
+    await Todo.create({ ...payload, userId })
 
     return response.redirect().back()
   }
@@ -27,5 +29,10 @@ export default class TodosController {
 
   public async update({}: HttpContextContract) {}
 
-  public async destroy({}: HttpContextContract) {}
+  @bind()
+  public async destroy({ response }: HttpContextContract, todo: Todo) {
+    await todo.delete()
+
+    return response.status(200)
+  }
 }
