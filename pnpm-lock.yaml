@@ -26,6 +26,9 @@ dependencies:
   '@adonisjs/view':
     specifier: ^6.1.0
     version: 6.2.0(@adonisjs/core@5.9.0)
+  htmx.org:
+    specifier: ^1.9.10
+    version: 1.9.10
   luxon:
     specifier: ^3.4.4
     version: 3.4.4
@@ -5647,6 +5650,10 @@ packages:
       domutils: 2.8.0
       entities: 2.2.0
     dev: true
+
+  /htmx.org@1.9.10:
+    resolution: {integrity: sha512-UgchasltTCrTuU2DQLom3ohHrBvwr7OqpwyAVJ9VxtNBng4XKkVsqrv0Qr3srqvM9ZNI3f1MmvVQQqK7KW/bTA==}
+    dev: false
 
   /http-cache-semantics@4.1.1:
     resolution: {integrity: sha512-er295DKPVsV82j5kw1Gjt+ADA/XYHsajl82cGNQG2eyoPkvgUhX+nDIyelzhIWbbsXP39EHcI6l5tYs2FYqYXQ==}
